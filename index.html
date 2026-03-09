@@ -1,32 +1,49 @@
 <!DOCTYPE html>
+<!-- 웹 페이지의 기본 문서 타입을 선언합니다 -->
 <html lang="ko" class="dark">
+<!-- HTML 문서 시작, 언어를 한국어(ko)로 설정, dark 클래스로 다크모드 활성화 -->
 <head>
+  <!-- 웹 페이지의 메타정보(페이지 설정)를 정의하는 섹션 -->
   <meta charset="UTF-8">
+  <!-- 문자 인코딩을 UTF-8로 설정하여 한글 등 다양한 문자를 올바르게 표시 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 반응형 디자인을 위해 화면 크기에 따라 페이지를 조정하도록 설정 -->
   <meta name="description" content="홍길동 - 3년차 풀스택 개발자 포트폴리오">
+  <!-- 검색 엔진에 나타날 페이지 설명 -->
   <meta property="og:title" content="홍길동 | 개발자 포트폴리오">
+  <!-- SNS(카카오톡, 페이스북 등)에서 공유될 때 표시될 제목 -->
   <meta property="og:description" content="HTML, CSS, JavaScript, React를 다루는 3년차 풀스택 개발자입니다.">
+  <!-- SNS에서 공유될 때 표시될 설명 -->
   <title>홍길동 | 개발자 포트폴리오</title>
+  <!-- 브라우저 탭에 표시될 페이지 제목 -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS 프레임워크를 CDN(인터넷)에서 불러옴 - 쉽게 디자인하기 위한 도구 -->
   <script>
+    <!-- Tailwind CSS의 설정을 커스터마이징하는 스크립트 -->
     tailwind.config = {
-      darkMode: 'class',
+      darkMode: 'class', <!-- 다크모드를 class 기반으로 제어 -->
       theme: {
         extend: {
+          <!-- 기본 색상에 추가로 커스텀 보라색 정의 -->
           colors: {
-            'purple-400': '#a78bfa',
-            'purple-500': '#8b5cf6',
-            'purple-600': '#7c3aed',
+            'purple-400': '#a78bfa', <!-- 밝은 보라색 -->
+            'purple-500': '#8b5cf6', <!-- 중간 보라색 -->
+            'purple-600': '#7c3aed', <!-- 어두운 보라색 -->
           }
         }
       }
     }
   </script>
   <link rel="stylesheet" href="css/styles.css">
+  <!-- 외부 CSS 파일을 불러옴 - 추가 스타일링이 정의되어 있음 -->
 </head>
 <body class="bg-[#0a0a0f] text-[#94a3b8] overflow-x-hidden">
+  <!-- 페이지 본문 시작 -->
+  <!-- bg-[#0a0a0f]: 매우 어두운 배경색(거의 검은색) -->
+  <!-- text-[#94a3b8]: 기본 텍스트 색상(회색) -->
+  <!-- overflow-x-hidden: 가로 스크롤바 숨김(오른쪽으로 나가는 내용 자르기) -->
 
-  <!-- 배경 오브 레이어 -->
+  <!-- 배경 오브 레이어: 페이지 뒤에 보라색 원형 그래디언트 효과 추가 -->
   <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
     <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full" style="background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%)"></div>
     <div class="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full" style="background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)"></div>
@@ -34,14 +51,30 @@
   </div>
 
   <!-- ===== 헤더 / 네비게이션 ===== -->
+  <!-- 페이지 상단에 고정되는 네비게이션 바 -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 glass-nav transition-shadow duration-300">
+    <!-- fixed: 페이지를 스크롤해도 항상 위에 고정 -->
+    <!-- z-50: 다른 요소들 위에 표시(높은 순서) -->
     <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <!-- 로고 -->
-      <a href="#hero" class="text-xl font-bold gradient-text">홍길동</a>
+      <!-- max-w-6xl: 최대 너비 제한 -->
+      <!-- flex: 자식 요소들을 가로로 배열 -->
+      <!-- justify-between: 양쪽 끝에 배치 -->
 
-      <!-- 데스크톱 메뉴 -->
+      <!-- 로고: 페이지 제목으로도 사용, 클릭하면 맨 위로 이동 -->
+      <a href="#hero" class="text-xl font-bold gradient-text">홍길동</a>
+      <!-- href="#hero": '#hero' 아이디를 가진 요소로 이동 -->
+      <!-- font-bold: 굵은 글자 -->
+      <!-- gradient-text: 보라색 그래디언트 색상(CSS에 정의됨) -->
+
+      <!-- 데스크톱 메뉴: 화면이 충분히 클 때(md 이상)만 표시 -->
       <ul class="hidden md:flex items-center gap-6 text-sm font-medium text-[#94a3b8]">
+      <!-- hidden: 기본적으로 숨김 -->
+      <!-- md:flex: 중간 크기 화면 이상에서만 표시 -->
+        <!-- 각 메뉴 항목: 클릭하면 해당 섹션으로 이동 -->
         <li><a href="#about" class="nav-link hover:text-[#a78bfa] transition-colors">소개</a></li>
+        <!-- href="#about": about 섹션으로 이동 -->
+        <!-- hover:text-[#a78bfa]: 마우스를 올리면 보라색으로 변함 -->
+        <!-- transition-colors: 색상 변화가 부드럽게 일어남 -->
         <li><a href="#skills" class="nav-link hover:text-[#a78bfa] transition-colors">기술 스택</a></li>
         <li><a href="#experience" class="nav-link hover:text-[#a78bfa] transition-colors">경력</a></li>
         <li><a href="#projects" class="nav-link hover:text-[#a78bfa] transition-colors">프로젝트</a></li>
@@ -49,26 +82,38 @@
         <li><a href="#contact" class="nav-link hover:text-[#a78bfa] transition-colors">연락처</a></li>
       </ul>
 
-      <!-- 다크모드 토글 + 모바일 햄버거 -->
+      <!-- 다크모드 토글 + 모바일 햄버거: 오른쪽에 배치 -->
       <div class="flex items-center gap-3">
+        <!-- 다크모드 토글 버튼: 라이트/다크 모드 전환 -->
         <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="다크모드 토글">
-          <!-- 달 아이콘 (라이트 모드에서 표시) -->
+          <!-- id="darkModeToggle": JavaScript에서 이 버튼의 동작을 제어 -->
+          <!-- aria-label: 화면 리더기가 읽어줄 버튼 설명 (접근성) -->
+
+          <!-- 달 아이콘: 라이트 모드에서 표시 (지금은 다크모드이므로 보임) -->
           <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#94a3b8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
           </svg>
-          <!-- 태양 아이콘 (다크 모드에서 표시) -->
+
+          <!-- 태양 아이콘: 다크 모드에서는 숨겨짐 -->
           <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#94a3b8] hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M18.364 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
           </svg>
         </button>
 
-        <!-- 햄버거 버튼 (모바일) -->
+        <!-- 햄버거 메뉴 버튼: 작은 화면(모바일)에서만 표시 -->
         <button id="menuToggle" class="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="메뉴 열기">
+        <!-- md:hidden: 중간 크기 이상 화면에서는 숨김(메뉴가 네비게이션 바에 있으므로) -->
+
+          <!-- 햄버거 아이콘: 메뉴 열 때 표시 -->
           <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <!-- 가로 선 3개(≡ 모양) -->
           </svg>
+
+          <!-- 닫기 아이콘: 메뉴 닫을 때 표시 -->
           <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            <!-- X 모양 -->
           </svg>
         </button>
       </div>
@@ -87,40 +132,96 @@
     </div>
   </header>
 
-  <!-- ===== 히어로 섹션 ===== -->
+  <!-- ===== 히어로 섹션 (메인 배너) ===== -->
+  <!-- 페이지 첫 화면에 보이는 가장 큰 섹션 -->
   <section id="hero" class="min-h-screen flex items-center pt-20 relative z-10">
+    <!-- min-h-screen: 최소 높이가 화면 전체(100vh) -->
+    <!-- flex items-center: 내용을 수직 중앙에 배치 -->
+    <!-- pt-20: 위쪽에 20 단위의 여백(header 피하기 위함) -->
+
     <div class="max-w-6xl mx-auto px-4 py-20 flex flex-col md:flex-row items-center gap-12">
-      <!-- 텍스트 -->
+      <!-- flex-col: 기본적으로 세로 배열 -->
+      <!-- md:flex-row: 중간 크기 이상에서는 가로 배열 -->
+      <!-- gap-12: 자식 요소들 간의 간격 -->
+
+      <!-- 텍스트 섹션: 왼쪽에 배치 -->
       <div class="flex-1 text-center md:text-left fade-in">
+      <!-- flex-1: 남은 공간을 차지 -->
+      <!-- fade-in: CSS에 정의된 페이드인 애니메이션(부드러운 나타남) -->
+        <!-- 인사말 -->
         <p class="text-[#a78bfa] font-semibold mb-3">안녕하세요!</p>
+        <!-- text-[#a78bfa]: 보라색으로 강조 -->
+        <!-- mb-3: 아래쪽에 여백 -->
+
+        <!-- 큰 제목 -->
         <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">
           저는 <span class="gradient-text">홍길동</span>입니다
         </h1>
+        <!-- text-4xl: 기본 크기 (큼) -->
+        <!-- md:text-6xl: 중간 크기 이상에서 더 큼 -->
+        <!-- gradient-text: 이름에만 보라색 그래디언트 적용 -->
+
+        <!-- 부제목: 직업 설명 -->
         <p class="text-xl md:text-2xl text-[#94a3b8] mb-4">3년차 풀스택 개발자</p>
+
+        <!-- 설명 텍스트 -->
         <p class="text-[#64748b] max-w-lg mb-8 leading-relaxed">
           사용자 경험을 중심으로 깔끔하고 효율적인 웹 서비스를 만드는 개발자입니다.
           새로운 기술을 탐구하고 지속적으로 성장하는 것을 즐깁니다.
         </p>
+        <!-- max-w-lg: 최대 너비 제한(긴 텍스트가 너무 넓게 펼쳐지지 않게) -->
+        <!-- leading-relaxed: 줄 높이가 넉넉함(글자 간 간격 여유) -->
+
+        <!-- 버튼들 -->
         <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+        <!-- justify-center: 모바일에서 중앙, md:justify-start: 데스크톱에서 왼쪽 -->
+
+          <!-- 주요 행동 버튼 -->
           <a href="#contact" class="glow-btn">연락하기</a>
+          <!-- glow-btn: CSS에 정의된 빛나는 버튼 스타일 -->
+
+          <!-- 보조 행동 버튼 -->
           <a href="#projects" class="glow-btn-outline">프로젝트 보기</a>
+          <!-- glow-btn-outline: CSS에 정의된 테두리만 있는 버튼 스타일 -->
         </div>
       </div>
 
-      <!-- 프로필 이미지 -->
+      <!-- 프로필 이미지: 오른쪽에 배치 -->
       <div class="flex-shrink-0 fade-in">
+      <!-- flex-shrink-0: 이미지 크기가 줄어들지 않도록 고정 -->
+
+        <!-- 원형 프로필 사진 컨테이너 -->
         <div class="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden ring-4 ring-[#8b5cf6] ring-offset-4 ring-offset-[#0a0a0f]" style="box-shadow: 0 0 40px rgba(139,92,246,0.3)">
+        <!-- w-56 h-56: 기본 크기(224px × 224px) -->
+        <!-- md:w-72 md:h-72: 중간 크기 이상에서 더 큼(288px × 288px) -->
+        <!-- rounded-full: 완전한 원(border-radius 50%) -->
+        <!-- overflow-hidden: 원 범위를 넘어가는 부분 숨김 -->
+        <!-- ring-4: 4px 두께의 테두리 -->
+        <!-- ring-[#8b5cf6]: 보라색 테두리 -->
+        <!-- ring-offset-4: 테두리와 배경 사이 간격 -->
+        <!-- box-shadow: 빛나는 효과 추가 -->
+
+          <!-- 프로필 사진 -->
           <img src="https://i.pravatar.cc/300?img=70" alt="프로필 사진" class="w-full h-full object-cover">
+          <!-- object-cover: 사진 비율을 유지하면서 컨테이너 채우기 -->
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== 소개 섹션 ===== -->
+  <!-- 개발자 소개와 경력 요약 -->
   <section id="about" class="section bg-[#0d0d1a] relative z-10">
+  <!-- bg-[#0d0d1a]: 약간 밝은 검정색 배경(짙은 남색) -->
+
     <div class="max-w-6xl mx-auto px-4">
+      <!-- 섹션 제목 -->
       <h2 class="text-3xl font-bold text-center mb-4 text-white fade-in">소개</h2>
+      <!-- mb-4: 아래쪽 여백 -->
+
+      <!-- 섹션 부제 -->
       <p class="text-[#64748b] text-center mb-12 fade-in">저에 대해 조금 더 알아보세요</p>
+      <!-- mb-12: 큰 여백(다음 내용과 거리) -->
 
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="fade-in">
@@ -159,22 +260,53 @@
   </section>
 
   <!-- ===== 기술 스택 섹션 ===== -->
+  <!-- 사용 가능한 프로그래밍 언어와 도구 -->
   <section id="skills" class="section bg-[#111128] relative z-10">
+  <!-- bg-[#111128]: 약간 다른 톤의 어두운 배경(구분을 위함) -->
+
     <div class="max-w-6xl mx-auto px-4">
+      <!-- 섹션 제목 -->
       <h2 class="text-3xl font-bold text-center mb-4 text-white fade-in">기술 스택</h2>
+
+      <!-- 섹션 부제 -->
       <p class="text-[#64748b] text-center mb-12 fade-in">사용할 수 있는 기술들입니다</p>
 
+      <!-- 기술 카드들을 3개 열로 배치 -->
       <div class="grid md:grid-cols-3 gap-6">
-        <!-- Frontend -->
+      <!-- grid: CSS Grid 레이아웃 -->
+      <!-- md:grid-cols-3: 중간 크기 이상에서 3개 열 -->
+      <!-- gap-6: 카드 간 간격 -->
+
+        <!-- Frontend 카드 -->
         <div class="glass-card rounded-xl p-6 fade-in">
+        <!-- glass-card: 유리처럼 반투명한 카드 스타일(CSS에 정의) -->
+        <!-- rounded-xl: 둥근 모서리(큼) -->
+        <!-- p-6: 내부 여백 -->
+
+          <!-- 카드 헤더: 아이콘과 제목 -->
           <div class="flex items-center gap-3 mb-5">
+          <!-- flex: 가로 배열 -->
+          <!-- items-center: 수직 중앙 정렬 -->
+          <!-- gap-3: 요소 간 간격 -->
+
+            <!-- 카테고리 아이콘 -->
             <div class="w-10 h-10 rounded-lg bg-[rgba(139,92,246,0.15)] flex items-center justify-center">
+            <!-- bg-[rgba(139,92,246,0.15)]: 투명한 보라색 배경 -->
+
               <span class="text-xl">💻</span>
+              <!-- 이모지 아이콘 -->
             </div>
+
+            <!-- 카테고리 제목 -->
             <h3 class="text-lg font-bold text-white">Frontend</h3>
           </div>
+
+          <!-- 스킬 태그들 -->
           <div class="flex flex-wrap gap-2">
+          <!-- flex-wrap: 줄바꿈 허용 -->
+
             <span class="skill-badge">HTML5</span>
+            <!-- skill-badge: CSS에 정의된 태그 스타일 -->
             <span class="skill-badge">CSS3</span>
             <span class="skill-badge">JavaScript</span>
             <span class="skill-badge">Tailwind CSS</span>
@@ -223,24 +355,54 @@
   </section>
 
   <!-- ===== 경력 섹션 ===== -->
+  <!-- 이전 직장 및 경력 경험 -->
   <section id="experience" class="section bg-[#0d0d1a] relative z-10">
     <div class="max-w-6xl mx-auto px-4">
+      <!-- 섹션 제목 -->
       <h2 class="text-3xl font-bold text-center mb-4 text-white fade-in">경력 사항</h2>
+
+      <!-- 섹션 부제 -->
       <p class="text-[#64748b] text-center mb-12 fade-in">지금까지 걸어온 길입니다</p>
 
+      <!-- 타임라인 컨테이너 -->
       <div class="max-w-2xl mx-auto">
+        <!-- 최대 너비 제한으로 가독성 향상 -->
+
+        <!-- 경력 목록: 왼쪽 보더라인으로 연결 -->
         <div class="timeline-container pl-8 space-y-8">
+        <!-- pl-8: 왼쪽 여백(타임라인 점을 위한 공간) -->
+        <!-- space-y-8: 자식 요소들 간의 세로 간격 -->
 
           <!-- 경력 1 -->
           <div class="relative flex gap-4 fade-in">
+          <!-- relative: 절대 위치 자식 요소(타임라인 점)의 기준점 -->
+
+            <!-- 타임라인 점: 왼쪽에 원형 표시 -->
             <div class="timeline-dot absolute -left-8 mt-1"></div>
+            <!-- absolute: 부모(relative) 기준으로 절대 위치 -->
+            <!-- -left-8: 왼쪽으로 튀어나옴 -->
+            <!-- timeline-dot: CSS에 정의된 원형 스타일 -->
+
+            <!-- 경력 카드: 오른쪽에 정보 표시 -->
             <div class="flex-1 glass-card rounded-xl p-6" style="border-left: 3px solid #7c3aed">
+            <!-- flex-1: 남은 공간 차지 -->
+            <!-- border-left: 왼쪽에 색상 있는 테두리(회사 구분용) -->
+
+              <!-- 회사명과 기간 -->
               <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+              <!-- justify-between: 제목과 기간을 양쪽에 배치 -->
+
+                <!-- 회사 정보 -->
                 <div>
                   <h3 class="text-lg font-bold text-white">(주)테크스타트</h3>
+                  <!-- 회사명 -->
                   <p class="text-[#a78bfa] font-medium">풀스택 개발자</p>
+                  <!-- 직책 (보라색으로 강조) -->
                 </div>
+
+                <!-- 근무 기간 -->
                 <span class="text-sm bg-[rgba(139,92,246,0.1)] border border-[rgba(139,92,246,0.3)] text-[#a78bfa] px-3 py-1 rounded-full">2023.03 ~ 현재</span>
+                <!-- 투명한 보라색 배경의 작은 배지 스타일 -->
               </div>
               <ul class="text-[#94a3b8] text-sm space-y-1 list-disc list-inside">
                 <li>사내 업무 자동화 시스템 개발 (React + Node.js)</li>
@@ -295,23 +457,46 @@
   </section>
 
   <!-- ===== 프로젝트 섹션 ===== -->
+  <!-- 포트폴리오에 포함된 주요 프로젝트 -->
   <section id="projects" class="section bg-[#111128] relative z-10">
     <div class="max-w-6xl mx-auto px-4">
+      <!-- 섹션 제목 -->
       <h2 class="text-3xl font-bold text-center mb-4 text-white fade-in">주요 프로젝트</h2>
+
+      <!-- 섹션 부제 -->
       <p class="text-[#64748b] text-center mb-12 fade-in">직접 만든 프로젝트들입니다</p>
 
+      <!-- 프로젝트 카드들을 2개 열로 배치 -->
       <div class="grid md:grid-cols-2 gap-6">
+      <!-- md:grid-cols-2: 중간 크기 이상에서 2개 열 -->
 
         <!-- 프로젝트 카드 1 -->
         <div class="project-card glass-card rounded-xl overflow-hidden fade-in">
+        <!-- overflow-hidden: 카드 경계를 넘어가는 내용 숨김(둥근 모서리 적용) -->
+
+          <!-- 프로젝트 대표 이미지 -->
           <div class="h-44 overflow-hidden">
+          <!-- h-44: 높이 고정(176px) -->
+
             <img src="https://picsum.photos/seed/bucketlist/400/200" alt="버킷리스트 앱" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <!-- object-cover: 비율 유지하면서 영역 가득 채우기 -->
+            <!-- hover:scale-105: 마우스 올리면 5% 확대 -->
+            <!-- transition-transform: 확대가 부드럽게 일어남 -->
           </div>
+
+          <!-- 프로젝트 정보 -->
           <div class="p-6">
+            <!-- 프로젝트 제목 -->
             <h3 class="text-lg font-bold mb-2 text-white">버킷리스트 앱</h3>
+
+            <!-- 프로젝트 설명 -->
             <p class="text-[#94a3b8] text-sm mb-4">목표 관리를 위한 인터랙티브 버킷리스트 웹앱. LocalStorage를 활용한 데이터 영속성 구현.</p>
+            <!-- LocalStorage: 브라우저에 데이터를 저장하는 방식 -->
+
+            <!-- 사용 기술 태그들 -->
             <div class="flex flex-wrap gap-1 mb-4">
               <span class="skill-badge">HTML</span>
+              <!-- 각 기술을 태그로 표시 -->
               <span class="skill-badge">Tailwind CSS</span>
               <span class="skill-badge">JavaScript</span>
             </div>
@@ -387,18 +572,37 @@
   </section>
 
   <!-- ===== SNS 링크 섹션 ===== -->
+  <!-- 소셜 미디어 프로필 링크들 -->
   <section id="sns" class="section bg-[#0d0d1a] relative z-10">
     <div class="max-w-6xl mx-auto px-4">
+      <!-- 섹션 제목 -->
       <h2 class="text-3xl font-bold text-center mb-4 text-white fade-in">소셜 미디어</h2>
+
+      <!-- 섹션 부제 -->
       <p class="text-[#64748b] text-center mb-12 fade-in">다양한 채널에서 만나보세요</p>
 
+      <!-- SNS 카드들을 2개 열(모바일) 또는 4개 열(데스크톱)로 배치 -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <!-- grid-cols-2: 기본적으로 2개 열 (모바일) -->
+      <!-- md:grid-cols-4: 중간 크기 이상에서 4개 열 -->
 
-        <!-- GitHub -->
+        <!-- GitHub 링크 -->
+        <!-- GitHub 프로필 카드 -->
         <a href="https://github.com/devkim" target="_blank" rel="noopener noreferrer"
            class="sns-card glass-card rounded-xl p-6 text-center group fade-in">
+        <!-- href: 클릭하면 외부 GitHub 프로필로 이동 -->
+        <!-- target="_blank": 새 탭에서 열기 -->
+        <!-- rel="noopener noreferrer": 보안 설정(외부 사이트가 현재 페이지 접근 못하게) -->
+        <!-- group: Tailwind의 그룹 호버 효과를 위한 설정 -->
+
+          <!-- SNS 아이콘 -->
           <div class="flex justify-center mb-3">
+          <!-- justify-center: 아이콘을 중앙에 배치 -->
+
             <svg class="w-12 h-12 text-white group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+            <!-- w-12 h-12: 48px × 48px 크기 -->
+            <!-- group-hover:scale-110: 마우스 올리면 10% 확대 -->
+            <!-- transition-transform: 확대가 부드럽게 일어남 -->
               <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
             </svg>
           </div>
@@ -460,24 +664,47 @@
   </section>
 
   <!-- ===== 연락처 섹션 ===== -->
+  <!-- 방문자가 개발자에게 연락할 수 있는 정보와 버튼 -->
   <section id="contact" class="section bg-[#111128] relative z-10">
     <div class="max-w-6xl mx-auto px-4">
+      <!-- 섹션 제목 -->
       <h2 class="text-3xl font-bold text-center mb-4 text-white fade-in">연락하기</h2>
+
+      <!-- 섹션 부제 -->
       <p class="text-[#64748b] text-center mb-12 fade-in">새로운 기회나 협업 제안을 환영합니다</p>
 
+      <!-- 연락처 카드 컨테이너 -->
       <div class="max-w-xl mx-auto">
+      <!-- max-w-xl: 최대 너비 제한(가독성) -->
+
+        <!-- 연락처 정보 카드 -->
         <div class="glass-card rounded-xl p-8 fade-in">
+        <!-- p-8: 충분한 내부 여백 -->
+          <!-- 연락처 정보 목록 -->
           <div class="space-y-5">
-            <!-- 이메일 -->
+          <!-- space-y-5: 자식 요소들 간의 세로 간격 -->
+
+            <!-- 이메일 정보 -->
             <div class="flex items-center gap-4">
+            <!-- flex: 가로 배열(아이콘과 정보) -->
+
+              <!-- 이메일 아이콘 -->
               <div class="w-12 h-12 rounded-lg bg-[rgba(139,92,246,0.15)] flex items-center justify-center flex-shrink-0">
+              <!-- flex-shrink-0: 아이콘 크기가 줄어들지 않게 고정 -->
+              <!-- bg-[rgba(139,92,246,0.15)]: 투명한 보라색 배경 -->
+
                 <svg class="w-6 h-6 text-[#a78bfa]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  <!-- 봉투 모양 아이콘 -->
                 </svg>
               </div>
+
+              <!-- 이메일 정보 -->
               <div>
                 <p class="text-xs text-[#64748b] mb-1">이메일</p>
+                <!-- 라벨 텍스트(회색) -->
                 <a href="mailto:dev.kim@example.com" class="text-white font-medium hover:text-[#a78bfa] transition-colors">
+                <!-- mailto: 링크 클릭하면 메일 앱 열기 -->
                   dev.kim@example.com
                 </a>
               </div>
@@ -525,11 +752,23 @@
   </section>
 
   <!-- ===== 푸터 ===== -->
+  <!-- 페이지 하단: 저작권 및 기술 정보 -->
   <footer class="bg-[#0a0a0f] border-t border-[rgba(139,92,246,0.15)] text-[#64748b] py-8 text-center relative z-10">
+  <!-- border-t: 위쪽에 테두리(섹션 구분) -->
+  <!-- py-8: 위아래 여백 -->
+
+    <!-- 저작권 정보 -->
     <p class="text-sm mb-1">© 2024 홍길동. All rights reserved.</p>
+    <!-- mb-1: 다음 텍스트와의 여백 -->
+
+    <!-- 제작 기술 정보 -->
     <p class="text-xs">HTML · CSS · JavaScript · Tailwind CSS로 제작</p>
+    <!-- text-xs: 매우 작은 글자 -->
   </footer>
 
+  <!-- JavaScript 파일 불러오기: 동적 기능 제어 -->
   <script src="js/resume.js"></script>
+  <!-- resume.js: 다크모드 토글, 모바일 메뉴, 스크롤 애니메이션 등 제어 -->
+
 </body>
 </html>
