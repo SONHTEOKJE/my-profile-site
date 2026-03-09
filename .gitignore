@@ -1,0 +1,39 @@
+# OS files
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.sublime-workspace
+
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Dependencies
+package-lock.json
+yarn.lock
+
+# IDE specific
+.vs/
+.sublime-project
